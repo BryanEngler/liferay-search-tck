@@ -4,7 +4,13 @@
 	<category name="com.liferay.dynamic.data.mapping.internal.util.DefaultDDMStructureHelperImpl">
 		<priority value="DEBUG" />
 	</category>
+	<category name="com.liferay.dynamic.data.mapping.service.impl.DDMStructureLocalServiceImpl">
+		<priority value="DEBUG" />
+	</category>
 	<category name="com.liferay.dynamic.data.mapping.service.impl.DDMTemplateLocalServiceImpl">
+		<priority value="DEBUG" />
+	</category>
+	<category name="com.liferay.dynamic.data.mapping.service.persistence.impl.DDMStructurePersistenceImpl">
 		<priority value="DEBUG" />
 	</category>
 </log4j:configuration>
