@@ -8,7 +8,7 @@ APP_SERVER_PARENT_DIR=${APP_SERVER_PARENT_DIR:=""}
 RECREATE_COMPONENT_CONFIGURATIONS=${RECREATE_COMPONENT_CONFIGURATIONS:=false}
 RECREATE_LOG4J_CONFIGURATIONS=${RECREATE_LOG4J_CONFIGURATIONS:=false}
 COMMAND_RUN_SOME_TESTS=${COMMAND_RUN_SOME_TESTS:=""}
-
+IS_DXP_DIR=${IS_DXP_DIR:=false}
 
 
 #
@@ -268,7 +268,13 @@ function test_run()
 	shift 1
 	local tests=( "$@" ) 
 
-	local directory=${LIFERAY_PORTAL_DIR}/modules/apps/$subdir
+	if [ "$IS_DXP_DIR" = true ]
+	then
+		local directory=${LIFERAY_PORTAL_DIR}/modules/dxp/apps/$subdir
+	else
+		local directory=${LIFERAY_PORTAL_DIR}/modules/apps/$subdir
+	fi
+
 	local no_settings_gradle=true
 
 	do_test_run $directory $no_settings_gradle "${tests[@]}"
